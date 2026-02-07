@@ -4,6 +4,7 @@ import dbConnect from './DB/dbConnect.js';
 import authRouter from './routes/authUser.js';
 import multer from 'multer';
 import messageRouter from './routes/messageRout.js';
+import cookieParser from 'cookie-parser';
 
 dbConnect();
 
@@ -17,7 +18,14 @@ app.get('/', (req, res) => {
 });
 
 app.use(express.json());
-
+app.use(cookieParser());
+// app.use((req, res, next) => {
+//   console.log("==== DEBUG MIDDLEWARE ====");
+//   console.log("Headers.cookie:", req.headers.cookie);
+//   console.log("req.cookies object:", req.cookies);
+//   console.log("==========================");
+//   next();
+// });
 
 app.use(express.urlencoded({ /// ye hm tab use krte h jb form data bhejna ho server ko
     extended: true,
