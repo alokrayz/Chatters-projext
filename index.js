@@ -5,6 +5,7 @@ import authRouter from './routes/authUser.js';
 import multer from 'multer';
 import messageRouter from './routes/messageRout.js';
 import cookieParser from 'cookie-parser';
+import userRouter from './routes/userRout.js';
 
 dbConnect();
 
@@ -36,7 +37,7 @@ app.use(express.static("public"));
 
 app.use('/api/auth', authRouter);
 app.use('/api/message', messageRouter);
-
+app.use('/api/user', userRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

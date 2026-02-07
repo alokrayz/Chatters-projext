@@ -5,7 +5,7 @@ import User from "../Models/userModels.js";
     try {
         // console.log(req.headers.cookie);
         const token = req.cookies.jwt;
-        console.log("Middleware token:", token);
+        // console.log("Middleware token:", token);
         if (!token) {
             return res.status(401).json({ success: false, message: "Unauthorized: No token provided" });
         }
